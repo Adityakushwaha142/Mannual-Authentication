@@ -4,4 +4,5 @@ const express = require ("express") ;
  console.log("router loaded ") ;
  
  router.get("/" , homeController.home) ; 
+ router.use("/user" , require("./user"))
  module.exports = router  

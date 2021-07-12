@@ -1,17 +1,14 @@
-const express = require ( "express") ; 
+const express = require("express");
 
-const app = express() ; 
-const db = require ( "./db")
-app.set ( "view engine" , "hbs") ; 
-app.use ( "/" , require ("./routes")) ; 
+const cookieParser = require("cookie-parser");
 
+const app = express();
+const db = require("./db");
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.set("view engine", "hbs");
+app.use("/", require("./routes"));
 
-/* app.get ( "/" , (req, res)=>{
-    return  res.redirect("index") ; 
-})
-app.get ( "/index", (req, res)=>{
-    return res.render ( "index") ; 
-}) */
-app.listen ( 2424 , ()=>{
-    console.log("server started on http://localhost:2424") ; 
-})
+app.listen(2424, () => {
+  console.log("server started on http://localhost:2424");
+});
